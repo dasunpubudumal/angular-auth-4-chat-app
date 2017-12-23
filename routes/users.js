@@ -39,13 +39,13 @@ router.post('/authenticate', (req, res) => {
           if(err) throw err;
           if(isMatch){
               //Since jwt module has upgraded to its v8, jwt.sign(user.toJSON()) was used instead of jwt.sign(user).
-              const token = jwt.sign(user.toJSON(), config.secret, {
+              const token = jwt.sign({data: user}, config.secret, {
                   expiresIn: 604800
               });
 
               res.json({
                   success: true,
-                  token: 'JWT' + token,
+                  token: 'Bearer ' + token,
                   user: {
                       id: user._id,
                       name: user.name,
@@ -61,8 +61,8 @@ router.post('/authenticate', (req, res) => {
 });
 
 //Profile
-router.get('/profile', (req, res) => {
-    res.send('PROFILE');
+router.get('/profile', passport.authenticate('jwt', {session:false}) ,(req, res, next) => {
+    res.json({user:req.user});
 });
 
 module.exports = router;
