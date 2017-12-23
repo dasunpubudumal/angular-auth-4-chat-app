@@ -1,0 +1,12 @@
+
+.idea/.name
+.idea/angular-auth-4-chat-app.iml
+.idea/dbnavigator.xml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/watcherTasks.xml
+.idea/workspace.xml
+
+node_modules/
+
