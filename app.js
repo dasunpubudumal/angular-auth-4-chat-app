@@ -33,6 +33,10 @@ Injecting the dependencies
 app.use(cors());
 //To parse data from requests.
 app.use(bodyParser.json());
+//Authentication
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')(passport);
 //User Controller
 app.use('/users',users);
 //Angular
