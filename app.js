@@ -1,3 +1,5 @@
+//From last time (2017-12-29): Have to watch part 8.
+
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
